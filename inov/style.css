@@ -1,0 +1,891 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  
+}
+
+/* Header section */
+
+header{
+    width: 100%; 
+    max-width: 100%;
+    padding-left: 100px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+header nav a{
+    color: #fff;
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+
+a.active{
+    background: #5f07cacb;
+    border-radius: 2px;
+}
+
+a:hover{
+    background: #5f07cacb;
+    border-radius: 2px;
+}
+
+/* Header section */
+
+
+
+/* carousel */
+
+.carousel{
+    width: 100vw;
+    height: 100vh;
+    margin-top: -50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel .list .item{
+    width: 180px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    transform: translateY(-70%);
+    left: 70%;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    background-position: 50% 50%;
+    background-size: cover;
+    z-index: 100;
+    transition: 1s;
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel .list .item:nth-child(3){
+    left: 67%;
+}
+
+.carousel .list .item:nth-child(4){
+    left: calc(67% + 200px);
+}
+
+.carousel .list .item:nth-child(5){
+    left: calc(67% + 400px);
+}
+
+.carousel .list .item:nth-child(6){
+    left: calc(67% + 600px);
+}
+
+.carousel .list .item:nth-child(n+7){
+    left: calc(67% + 800px);
+    opacity: 0;
+}
+
+
+
+
+
+.list .item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%);
+    width: 400px;
+    text-align: left;
+    color: #fff;
+    display: none;
+}
+
+.list .item:nth-child(2) .content{
+    display: block;
+}
+
+.content .title{
+    font-size: 100px;
+    text-transform: uppercase;
+    color:#5f07cacb;
+    font-weight: bold;
+    line-height: 1;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content .name{
+    font-size: 100px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.9s 1 forwards;
+}
+
+.content .btn{
+    margin-left: 5px;
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.2s 1 forwards;
+}
+
+.content .btn button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border: 2px solid #fff;
+}
+
+.content .btn button:nth-child(1){
+    margin-right: 15px;
+}
+
+.content .btn button:nth-child(2){
+    background: transparent;
+    color: #5f07cacb;
+    border: 2px solid #fff;
+    transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover{
+    background-color: #5f07cacb;
+    color: #fff;
+    border-color: #5f07cacb;
+}
+
+
+@keyframes animate {
+    
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+/* Carousel */
+
+
+
+
+
+
+/* next prev arrows */
+
+.arrows{
+    position: absolute;
+    top: 80%;
+    right: 52%;
+    z-index: 100;
+    width: 300px;
+    max-width: 30%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrows button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #5f07cacb;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.arrows button:hover{
+    background: #fff;
+    color: #000;
+}
+
+
+/* time running */
+.carousel .timeRunning{
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: #5f07cacb;
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    
+    from{width: 0%;}
+    to{width: 100%;}
+
+}
+
+
+/* Responsive Design */
+
+@media screen and (max-width: 999px){
+    
+    header{
+        padding-left: 50px;
+    }
+
+    .list .item .content{
+        left: 50px;
+    }
+
+    .content .title, .content .name{
+        font-size: 70px;
+    }
+
+    .content .des{
+        font-size: 16px;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    header nav a{
+        font-size: 14px;
+        margin-right: 0;
+    }
+
+    .list .item .content{
+        top: 40%;
+    }
+
+    .content .title, .content .name{
+        font-size: 45px;
+    }
+
+    .content .btn button{
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+
+
+
+.cor{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 5rem;
+  
+   
+}
+
+.save{
+  height: 36rem;
+}
+
+.carousel-inner {
+    height: 34rem;
+    border-radius: 20px;
+    overflow: hidden;
+  
+   
+  }
+
+  .carousel-inner :active{
+    overflow: hidden;
+  }
+
+
+  .carousel-inner img {
+    width: 100%; /* Ensure the image scales to the div's width */
+    height: 100%; /* Scale to the div's height */
+  object-fit: cover;
+
+  }
+
+  .card-img-top{
+    max-width: 100% !important;
+    max-height: 100% !important; 
+    object-fit: cover !important; 
+}  
+
+
+
+
+
+
+
+
+
+/* index proposal */
+
+.proposal-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 7%;
+    margin-bottom: 7%;
+  }
+  
+  
+  .proposal-image {
+    flex: 1;
+    text-align: left;
+    border-radius: 25px;
+    margin-left: 8%;
+    box-shadow: 0 0 55px #f8f9fa;
+    width: 50vw;
+  
+    
+  }
+  
+  .proposal-image img {
+    max-width: 100%;
+    height: 40vh;
+    width: 50vh;
+    cursor: pointer; 
+    box-shadow: 0 0 55px #f8f9fa;
+  }
+  
+  
+  .proposal-text {
+    flex: 1;
+    text-align: right;
+    font-family: 'Arial', sans-serif; 
+    font-size: 3rem; 
+    color: #fbfbfb; 
+    font-weight: bold;
+    padding-left: 20px; 
+  }
+  
+  .proposal-text a:hover{
+    text-shadow: 80px 80px 80px 80px #ffffff;
+  
+  }
+  
+  
+  @media (max-width: 768px) {
+    .proposal-section {
+        flex-direction: column;
+        text-align: center;
+    }
+  
+    .proposal-image {
+        margin-bottom: 20px;
+    }
+  
+    .proposal-text {
+        font-size: 2rem;
+        padding-left: 0;
+    }
+  }
+  
+  
+  
+  .turing-quote {
+    text-align: center;
+    font-family: 'Georgia', serif;  
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 15px 0; 
+    padding: 20px;
+    border-top: 2px solid #ddd; 
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 4%;
+    margin-top: 20px;
+    
+  }
+  
+  .turing-quote p {
+    margin: 0;
+    font-style: italic;
+  }
+  
+  @media (max-width: 768px) {
+    .turing-quote {
+        font-size: 1.2rem;
+    } 
+  } 
+  
+
+
+
+
+
+
+/* cards */
+.card {
+    width: 15vw !important;
+    height: 50vh !important;              /* Set the width of the card */            /* Set the height of the card */
+    background-color: white; 
+    border-radius: 10px;       /* Optional: round the corners */
+    padding: 20px;             /* Inner padding */
+    
+    /* Grey glow shadow */
+    box-shadow: 0 0 15px rgba(202, 130, 37, 0.7); /* Horizontal offset, Vertical offset, Blur radius, Color */
+    
+    /* Optional: for visual purposes */
+    transition: box-shadow 0.3s ease-in-out; /* Adds a smooth transition effect */
+  }
+  
+  /* Optional: Add hover effect to enhance the glow on hover */
+  .card:hover {
+    box-shadow: 0 0 55px rgba(206, 138, 11, 0.9); /* Increase the glow on hover */
+  }
+  
+  
+  .card-container{
+    margin-top: 13vh;
+    margin-bottom: 12vh;
+    margin-left: 2rem;
+  }
+  
+  
+  
+  .card-img-top{
+     height: 90%;
+  }
+  
+  .card-text{
+    font-size: medium !important;
+    font-weight: 700;
+    font-family: Impact (sans-serif) !important;
+    text-shadow: #00234c !important;
+  
+  }
+  
+  .card-body{
+    text-align: center;
+  }
+
+/*about*/
+
+.about{
+    margin-top: 5rem;
+}
+
+
+.card{
+    height: 55rem;
+}
+
+.main-im{
+    margin-bottom: 14rem;
+} 
+
+
+/* text */
+
+
+
+.up-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+} 
+
+
+
+
+.up-txt{
+  text-align: center;
+  margin-top: 2.7rem;
+}
+
+.up-txt h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  color: #e58f67;
+  font-family: Arial, sans-serif; /* Similar to the color in your screenshot */
+}
+
+.up-txt p {
+  font-size: 24px;
+  color: #ccc;
+  font-family: Arial, sans-serif;
+}  
+
+
+
+
+/*logo*/
+
+.logo{
+    position: absolute;
+    left: 0;  /* Align the element to the left edge */
+    top: 0;  
+     height: auto;
+    width: 13%; 
+    margin-top: 0.7rem;
+    margin-left: 1rem;
+    size: 1rem;
+    z-index: 2;
+  }
+  
+  .logo-desk{
+    margin-left: 0%;
+  }
+  .main-im{
+    padding-top: 12%;
+  }
+
+
+
+
+  
+/* cards */
+.card {
+    width: 15vw !important;
+    height: 50vh !important;              /* Set the width of the card */            /* Set the height of the card */
+    background-color: white; 
+    border-radius: 10px;       /* Optional: round the corners */
+    padding: 20px;             /* Inner padding */
+    
+    /* Grey glow shadow */
+    box-shadow: 0 0 15px rgba(202, 130, 37, 0.7); /* Horizontal offset, Vertical offset, Blur radius, Color */
+    
+    /* Optional: for visual purposes */
+    transition: box-shadow 0.3s ease-in-out; /* Adds a smooth transition effect */
+  }
+  
+  /* Optional: Add hover effect to enhance the glow on hover */
+  .card:hover {
+    box-shadow: 0 0 55px rgba(206, 138, 11, 0.9); /* Increase the glow on hover */
+  }
+  
+  
+  .card-container{
+    margin-top: 13vh;
+    margin-bottom: 12vh;
+    margin-left: 2rem;
+  }
+  
+  
+  
+  .card-img-top{
+     height: 90%;
+  }
+  
+  .card-text{
+    font-size: medium !important;
+    font-weight: 700;
+    font-family: Impact (sans-serif) !important;
+    text-shadow: #00234c !important;
+  
+  }
+  
+  .card-body{
+    text-align: center;
+  }
+
+
+
+
+
+  
+/* Gallery */
+
+ .parent-div {
+    display: flex;
+    justify-content: space-evenly; 
+    align-items: center;
+    padding: 15px;
+    height: 200px; 
+    margin-top: 15%;
+    margin-bottom: 15%;
+     
+  
+  }
+  
+  
+  
+  .child-div {
+    width: 30%; 
+    height: 100px; 
+   
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+   
+    
+     
+     transition: box-shadow 0.3s ease-in-out; 
+  }
+  
+  .child-div img:hover{
+    box-shadow: 0 0 55px rgba(255, 255, 255, 0.7);
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .parent-div {
+      display: flex; /* Enables flexbox */
+      flex-direction: column; /* Stack child divs vertically */
+      justify-content: center; /* Center child divs vertically */
+      align-items: center; /* Center child divs horizontally */
+      height: 50vh; /* Full height to see vertical alignment */
+      margin-bottom: 20vh;
+      margin-top: 20vh;
+     
+    }
+  
+      .child-div2{
+        margin-top: 20vh;
+      }
+  
+  
+      .child-div img{
+        height: 30vh;
+        width: 65vw;
+      }
+  
+  
+  
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .gallery{
+      margin-top: 5vh;
+      margin-right: 3vw;
+    }
+  
+    .gallery-image img{
+      width: 25vw !important;
+      height: 15vh !important;
+    }
+  
+    .text-heading{
+      margin-top: 2vh;
+      
+    }  .about{
+        margin-top: 5vh;
+      }
+    
+    
+      .carousel-inner{
+        height: 25vh !important;
+      }
+    }
+
+
+    .img-g{
+        width: 100%;
+        height: 1 rem auto;
+        object-position: center;
+        object-fit: cover;
+        border-radius: 15%;
+      } 
+      
+      
+      
+      
+      
+      
+       .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      
+      
+      
+      /* Gallery Image Styling */
+      .gallery-image {
+        width: calc(33.333% - 10px); /* Each image takes 1/3 of the row with spacing */
+        margin: 5px;
+        display: inline-block;
+      }
+      
+      .gallery-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .gallery-image img:hover {
+        transform: scale(1.05); /* Zoom effect on hover */
+        box-shadow: 0 0 55px rgba(231, 50, 50, 0.7);
+      }
+      
+      /* Popup Styles */
+      .image-popup {
+        display: none; /* Hidden initially */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 800px;
+        background: rgba(68, 130, 182, 0.9); /* Dark overlay */
+        padding: 20px;
+        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
+        z-index: 1000;
+        text-align: center;
+      }
+      
+      .large-popup-image {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        margin: 0 auto;
+        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
+      }
+      
+      .image-popup:target {
+        display: block; /* Show popup when it is targeted */
+      }
+      
+      .close-popup {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        color: #fff;
+        text-decoration: none;
+        z-index: 1001;
+        cursor: pointer;
+      }
+      
+      .img-g{
+        width: 100%;
+        height: 1 rem auto;
+        object-position: center;
+        object-fit: cover;
+        border-radius: 15%;
+      } 
+      
+      
+      
+      
+      
+      
+       .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+      
+      
+      
+      /* Gallery Image Styling */
+      .gallery-image {
+        width: calc(33.333% - 10px); /* Each image takes 1/3 of the row with spacing */
+        margin: 5px;
+        display: inline-block;
+      }
+      
+      .gallery-image img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+      
+      .gallery-image img:hover {
+        transform: scale(1.05); /* Zoom effect on hover */
+        box-shadow: 0 0 55px rgba(231, 50, 50, 0.7);
+      }
+      
+      /* Popup Styles */
+      .image-popup {
+        display: none; /* Hidden initially */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 800px;
+        background: rgba(68, 130, 182, 0.9); /* Dark overlay */
+        padding: 20px;
+        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
+        z-index: 1000;
+        text-align: center;
+      }
+      
+      .large-popup-image {
+        max-width: 100%;
+        max-height: 80vh;
+        object-fit: contain;
+        margin: 0 auto;
+        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
+      }
+      
+      .image-popup:target {
+        display: block; /* Show popup when it is targeted */
+      }
+      
+      .close-popup {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        color: #fff;
+        text-decoration: none;
+        z-index: 1001;
+        cursor: pointer;
+      }
+      
+
+      .set-b {
+        background-image: url(images/header-background.jpg);
+        background-size: cover;          /* Ensures the image covers the entire container */
+        background-position: center;     /* Centers the image */
+        background-repeat: no-repeat;    /* Prevents the image from repeating */
+        width: 100%;
+        height: 100vh;                   /* Sets the height of the container to full viewport */
+      }
+      
