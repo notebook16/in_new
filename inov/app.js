@@ -70,3 +70,12 @@ window.addEventListener('scroll', function () {
         header.classList.remove('scrolled');
     }
 });
+
+
+
+
+
+function toggleSidebar() {
+    const sidebar = document.getElementById('mobileNav');
+    sidebar.classList.toggle('active');
+}

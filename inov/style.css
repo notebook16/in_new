@@ -31,16 +31,173 @@ header nav a{
 }
 
 a.active{
-    background: #5f07cacb;
+    background: #14ff72cb;;
     border-radius: 2px;
 }
 
 a:hover{
-    background: #5f07cacb;
+    background: #14ff72cb;
     border-radius: 2px;
 }
 
+
+/* mobile */
+/* Sidebar Navbar (Mobile View) */
+@media only screen and (max-width: 768px) {
+  .desktop-header {
+      display: none !important; /* Hide desktop navbar on mobile */
+  }
+
+  .Mobile {
+      display: block;
+      position: fixed;
+      height: 100%;
+      width: 250px;
+      background-color: #333;
+      left: -250px;
+      top: 0;
+      transition: 0.3s;
+      z-index: 9999;
+      padding-top: 60px; /* Add space at the top */
+      opacity: 0.9;
+  }
+
+  .Mobile.active {
+      left: 0;
+  }
+
+  .Mobile ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none; /* Remove default list styling */
+  }
+
+  .Mobile .nav-item {
+      width: 100%; /* Make each item take up full width */
+  }
+
+  .Mobile .nav-item a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Arial', sans-serif;
+      font-size: 18px;
+      display: block; /* Ensure links stack vertically */
+      padding: 15px;
+      border-bottom: 1px solid #444; /* Add a bottom border between items */
+      width: 100%; /* Ensure the link takes the full width of the sidebar */
+  }
+
+  .Mobile .nav-item a:hover {
+      background-color: #7a0fd1;
+      border-radius: 0; /* Remove rounded corners */
+  }
+
+  .menu-icon {
+      display: block;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      cursor: pointer;
+      z-index: 10000;
+      font-size: 24px;
+      color: #fff;
+  }
+
+  .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: white;
+  }
+
+  .up-txt{
+    margin-top: 25rem;
+  }
+
+  .carousel-inner{
+    height: 25vh !important;
+  }
+
+  .save{
+    height: 25vh !important;
+  }
+  
+  .proposal-section {
+    flex-direction: column;
+    text-align: center;
+}
+
+.proposal-image {
+    margin-bottom: 20px;
+    width: 65vw !important;
+}
+
+.proposal-text {
+    font-size: 2rem;
+    padding-left: 0;
+}
+ 
+.gallery-section{
+ margin-top: 60rem !important;
+}
+
+.card-container .col-12 {
+  flex: 0 0 80%; /* Adjusts the card to take 80% width */
+  max-width: 200%; /* Adjusts the max width to 80% */
+  margin: 0 auto; /* Center the card horizontally */
+}
+
+
+
+}
+
+@media screen and (min-width: 768px){
+  .Mobile {
+    display: none !important;
+  }
+
+  .menu-icon{
+    display: none;
+  }
+
+ 
+
+}
+
 /* Header section */
+/* Make header sticky and set initial background color */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: transparent; /* Initial transparent background */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  padding: 15px 0;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+/* Style the navigation links */
+nav a {
+  text-decoration: none;
+  color: black; /* Default color for text */
+  margin: 0 15px;
+ 
+}
+
+
+
+/* Change header background color when scrolled */
+header.scrolled {
+  background-color: #333; /* New background color when scrolled */
+
+  border-bottom-right-radius: 35px;;
+}
+
+nav a.scrolled {
+  color: white; /* Optional: change link color on scroll */
+}
 
 
 
@@ -122,7 +279,7 @@ a:hover{
 .content .title{
     font-size: 100px;
     text-transform: uppercase;
-    color:#5f07cacb;
+    color:#14ff72cb;
     font-weight: bold;
     line-height: 1;
 
@@ -172,15 +329,15 @@ a:hover{
 
 .content .btn button:nth-child(2){
     background: transparent;
-    color: #5f07cacb;
+    color: #14ff72cb;
     border: 2px solid #fff;
     transition: 0.3s;
 }
 
 .content .btn button:nth-child(2):hover{
-    background-color: #5f07cacb;
+    background-color: #14ff72cb;
     color: #fff;
-    border-color: #5f07cacb;
+    border-color: #14ff72cb;
 }
 
 
@@ -224,7 +381,7 @@ a:hover{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #5f07cacb;
+    background-color: #14ff72cb;
     color: #fff;
     border: none;
     outline: none;
@@ -247,7 +404,7 @@ a:hover{
     z-index: 1000;
     width: 0%;
     height: 4px;
-    background-color: #5f07cacb;
+    background-color: #14ff72cb;
     left: 0;
     top: 0;
     animation: runningTime 7s linear 1 forwards;
@@ -694,32 +851,9 @@ html {
   }
   
   
-  @media only screen and (max-width: 768px) {
-    .gallery{
-      margin-top: 5vh;
-      margin-right: 3vw;
-    }
-  
-    .gallery-image img{
-      width: 25vw !important;
-      height: 15vh !important;
-    }
-  
-    .text-heading{
-      margin-top: 2vh;
-      
-    }  .about{
-        margin-top: 5vh;
-      }
-    
-    
-      .carousel-inner{
-        height: 25vh !important;
-      }
-    }
+ 
 
-
-    .img-g{
+.img-g{
         width: 100%;
         height: 1 rem auto;
         object-position: center;
@@ -732,7 +866,7 @@ html {
       
       
       
-       .gallery {
+.gallery {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -741,143 +875,9 @@ html {
       
       
       
-      /* Gallery Image Styling */
-      .gallery-image {
-        width: calc(33.333% - 10px); /* Each image takes 1/3 of the row with spacing */
-        margin: 5px;
-        display: inline-block;
-      }
+     
       
-      .gallery-image img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-      
-      .gallery-image img:hover {
-        transform: scale(1.05); /* Zoom effect on hover */
-        box-shadow: 0 0 55px rgba(231, 50, 50, 0.7);
-      }
-      
-      /* Popup Styles */
-      .image-popup {
-        display: none; /* Hidden initially */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        max-width: 800px;
-        background: rgba(68, 130, 182, 0.9); /* Dark overlay */
-        padding: 20px;
-        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
-        z-index: 1000;
-        text-align: center;
-      }
-      
-      .large-popup-image {
-        max-width: 100%;
-        max-height: 80vh;
-        object-fit: contain;
-        margin: 0 auto;
-        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
-      }
-      
-      .image-popup:target {
-        display: block; /* Show popup when it is targeted */
-      }
-      
-      .close-popup {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 30px;
-        color: #fff;
-        text-decoration: none;
-        z-index: 1001;
-        cursor: pointer;
-      }
-      
-      .img-g{
-        width: 100%;
-        height: 1 rem auto;
-        object-position: center;
-        object-fit: cover;
-        border-radius: 15%;
-      } 
-      
-      
-      
-      
-      
-      
-       .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        justify-content: center;
-      }
-      
-      
-      
-      /* Gallery Image Styling */
-      .gallery-image {
-        width: calc(33.333% - 10px); /* Each image takes 1/3 of the row with spacing */
-        margin: 5px;
-        display: inline-block;
-      }
-      
-      .gallery-image img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-      
-      .gallery-image img:hover {
-        transform: scale(1.05); /* Zoom effect on hover */
-        box-shadow: 0 0 55px rgba(231, 50, 50, 0.7);
-      }
-      
-      /* Popup Styles */
-      .image-popup {
-        display: none; /* Hidden initially */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 80%;
-        max-width: 800px;
-        background: rgba(68, 130, 182, 0.9); /* Dark overlay */
-        padding: 20px;
-        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
-        z-index: 1000;
-        text-align: center;
-      }
-      
-      .large-popup-image {
-        max-width: 100%;
-        max-height: 80vh;
-        object-fit: contain;
-        margin: 0 auto;
-        box-shadow: 0 0 55px rgba(75, 27, 27, 0.7);
-      }
-      
-      .image-popup:target {
-        display: block; /* Show popup when it is targeted */
-      }
-      
-      .close-popup {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        font-size: 30px;
-        color: #fff;
-        text-decoration: none;
-        z-index: 1001;
-        cursor: pointer;
-      }
+   
       
 
       .set-b {
@@ -889,3 +889,46 @@ html {
         height: 100vh;                   /* Sets the height of the container to full viewport */
       }
       
+
+
+
+
+
+
+
+
+
+      .proposal-form {
+        text-align: center;
+        /* margin-top: 4rem; */
+      
+      }
+      
+      .form-iframe {
+        width: 50vw;
+        height: 100vh;
+        max-width: 640px; /* Original width of the iframe */
+        margin: 0 auto;
+        display: block;
+      }
+      
+      @media (max-width: 768px) {
+        .form-iframe {
+          margin-top: 12%;
+          width: 90%; /* Shrink width for mobile view */
+          height: 82vh; /* Adjust height proportionally */
+      
+        }
+      }
+
+
+
+
+
+     
+      
+
+
+
+
+
