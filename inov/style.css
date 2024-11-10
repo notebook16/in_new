@@ -823,6 +823,18 @@ html {
     box-shadow: 0 0 55px rgba(255, 255, 255, 0.7);
   }
   
+  @media only screen and (max-width: 768px) {
+    .card {
+       width: 80vw !important;
+       margin-left: 7%;
+    }
+    
+    .card-container{
+      margin-right: 150vw;
+    }
+  
+  
+  }
   
   @media only screen and (max-width: 768px) {
     .parent-div {
@@ -847,6 +859,10 @@ html {
       }
   
   
+      .gallery-section{
+        padding-top: 5rem;
+       
+      }
   
   }
   
